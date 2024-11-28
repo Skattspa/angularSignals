@@ -1,17 +1,23 @@
+<!-- {{cartService.cart()  | json}} -->
 <div
   class="card"
   style="width: 18rem;">
   <img
-    src="..."
+    [src]="product.image"
     class="card-img-top"
-    alt="...">
+    [alt]="product.title">
   <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a
+    <h5 class="card-title">{{product.title}}</h5>
+    <p class="card-text">{{product.description}}</p>
+    <div class="d-flex justify-content-between">
+      <span>Precio: {{product.price}}</span>
+      <span>Cantidad: {{product.rating.count}}</span>
+    </div>
+    <button class="btn btn-primary" (click)="addProduct(product)">Agregar al carrito</button>
+    <!-- <a
       href="#"
       class="btn btn-primary">
       Go somewhere
-    </a>
+    </a> -->
   </div>
 </div>

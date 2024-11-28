@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Product } from 'src/app/interfaces/product.interface';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-product-card',
@@ -9,5 +11,10 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./product-card.component.scss']
 })
 export class ProductCardComponent {
+  @Input({required:true}) product!: Product;
+  cartService = inject(CartService);
 
+  addProduct(product: Product) {
+    this.cartService.addProduct(product);
+  }
 }
